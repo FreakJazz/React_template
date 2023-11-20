@@ -12,12 +12,14 @@ import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import type { Theme } from '@mui/material/styles/createTheme';
+import type { Settings } from 'src/types/settings';
 
 // import { Logo } from 'src/components/logo';
 import { RouterLink } from 'src/components/router-link';
-import { version } from '../../config';
+import { version, oneTitle, twoTitle } from '../../config';
 import { usePathname } from 'src/hooks/use-pathname';
 import { useWindowScroll } from 'src/hooks/use-window-scroll';
+import { OptionsColorScheme } from '../components/settings/settings-drawer/options-color-scheme';
 
 import { paths } from 'src/paths';
 import { PagesPopover } from './pages-popover';
@@ -51,6 +53,15 @@ const TOP_NAV_HEIGHT = 64;
 
 interface TopNavProps {
   onMobileNavOpen?: () => void;
+}
+
+interface SettingsDrawerProps {
+  canReset?: boolean;
+  onClose?: () => void;
+  onReset?: () => void;
+  onUpdate?: (settings: Settings) => void;
+  open?: boolean;
+  values?: Settings;
 }
 
 export const TopNav: FC<TopNavProps> = (props) => {
@@ -147,7 +158,7 @@ export const TopNav: FC<TopNavProps> = (props) => {
                     },
                   }}
                 >
-                  Devias Kit <span>PRO</span>
+                  {oneTitle} <span>{twoTitle}</span>
                 </Box>
               )}
             </Stack>
