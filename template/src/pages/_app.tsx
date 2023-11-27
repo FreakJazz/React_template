@@ -19,17 +19,14 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import '../app/styles/globals.css';
-// Remove if locales are not used
 import 'src/app/locales/i18n';
 
 import { RTL } from 'src/app/components/rtl';
 import { SettingsButton } from 'src/app/components/settings/settings-button';
 import { SettingsDrawer } from 'src/app/components/settings/settings-drawer';
 import { Toaster } from '../app/components/toaster';
-// import { gtmConfig } from '../config';
 import { SettingsConsumer, SettingsProvider } from 'src/app/contexts/settings';
-// import { useAnalytics } from 'app/hooks/use-analytics';
-// import { useNprogress } from 'app/hooks/use-nprogress';
+import { TopNav } from 'src/app/layouts/top-nav'
 import { store } from 'src/app/store';
 import { createTheme } from 'src/app/theme';
 import { createEmotionCache } from 'src/app/utils/create-emotion-cache';
@@ -52,7 +49,7 @@ const CustomApp = (props: CustomAppProps) => {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Devias Kit PRO</title>
+        <title>Template Blog</title>
         <meta
           name="viewport"
           content="initial-scale=1, width=device-width"
@@ -110,6 +107,11 @@ const CustomApp = (props: CustomAppProps) => {
                                     navColor: settings.navColor,
                                   }}
                                 />
+                                <TopNav 
+                                  onUpdate={settings.handleUpdate}
+                                  values={{
+                                    paletteMode: settings.paletteMode,
+                                  }} />
                               </>
                             <Toaster />
                           </RTL>

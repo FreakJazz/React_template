@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { alpha } from '@mui/system/colorManipulator';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
@@ -14,12 +14,11 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import type { Theme } from '@mui/material/styles/createTheme';
 import type { Settings } from 'src/app/types/settings';
 
-// import { Logo } from 'app/components/logo';
 import { RouterLink } from 'src/app/components/router-link';
 import { version, oneTitle, twoTitle } from '../../../config';
 import { usePathname } from 'src/app/hooks/use-pathname';
 import { useWindowScroll } from 'src/app/hooks/use-window-scroll';
-import { OptionsColorScheme } from '../components/settings/settings-drawer/options-color-scheme';
+import OptionColor from '../components/settings/settings-drawer/options-color';
 
 import { paths } from 'src/app/paths';
 import { PagesPopover } from './pages-popover';
@@ -47,30 +46,37 @@ const items: Item[] = [
     path: paths.docs,
     external: true,
   },
+  {
+    title: 'Contact',
+    path: paths.docs,
+    external: true,
+  },
 ];
 
 const TOP_NAV_HEIGHT = 64;
 
 interface TopNavProps {
   onMobileNavOpen?: () => void;
-}
-
-interface SettingsDrawerProps {
-  canReset?: boolean;
-  onClose?: () => void;
-  onReset?: () => void;
   onUpdate?: (settings: Settings) => void;
-  open?: boolean;
   values?: Settings;
 }
 
 export const TopNav: FC<TopNavProps> = (props) => {
-  const { onMobileNavOpen } = props;
+  const { onMobileNavOpen, onUpdate, values = {} } = props;
   const pathname = usePathname();
   const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
   const [elevate, setElevate] = useState<boolean>(false);
   const offset = 64;
   const delay = 100;
+
+  const handleFieldUpdate = useCallback(
+    (field: keyof Settings, value: unknown): void => {
+      onUpdate?.({
+        [field]: value,
+      });
+    },
+    [onUpdate]
+  );
 
   const handleWindowScroll = useCallback((): void => {
     if (window.scrollY > offset) {
@@ -142,7 +148,6 @@ export const TopNav: FC<TopNavProps> = (props) => {
                   width: 24,
                 }}
               >
-                {/* <Logo /> */}
               </Box>
               {mdUp && (
                 <Box
@@ -208,6 +213,15 @@ export const TopNav: FC<TopNavProps> = (props) => {
                         />
                       );
                     })}
+                    {/* <Button
+                        component="a"
+                        size={mdUp ? 'medium' : 'small'}
+                        href="https://mui.com/store/items/devias-kit-pro"
+                        target="_blank"
+                        variant="contained"
+                      >
+                        Contact
+                      </Button> */}
                   </>
                 </Stack>
               </Box>
@@ -220,15 +234,8 @@ export const TopNav: FC<TopNavProps> = (props) => {
             spacing={2}
             sx={{ flexGrow: 1 }}
           >
-            <Button
-              component="a"
-              size={mdUp ? 'medium' : 'small'}
-              href="https://mui.com/store/items/devias-kit-pro"
-              target="_blank"
-              variant="contained"
-            >
-              Purchase Now
-            </Button>
+             <OptionColor onChange={(value) => handleFieldUpdate('paletteMode', value)}
+            value={values.paletteMode}/>
             {!mdUp && (
               <IconButton onClick={onMobileNavOpen}>
                 <SvgIcon fontSize="small">
@@ -245,4 +252,6 @@ export const TopNav: FC<TopNavProps> = (props) => {
 
 TopNav.propTypes = {
   onMobileNavOpen: PropTypes.func,
-};
+  onUpdate: PropTypes.func,
+  values: PropTypes.object,
+  };

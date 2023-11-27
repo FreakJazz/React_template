@@ -1,4 +1,4 @@
-import type { ColorPreset, Contrast, Direction, PaletteMode } from 'app/theme';
+import type { ColorPreset, Contrast, Direction, PaletteMode } from 'src/app/theme';
 
 export type Layout = 'horizontal' | 'vertical';
 

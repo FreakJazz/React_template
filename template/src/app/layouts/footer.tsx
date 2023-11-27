@@ -6,8 +6,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
-// import { Logo } from '../components/logo';
 import { RouterLink } from '../components/router-link' ;
 import { paths } from '../paths';
 
@@ -130,7 +128,7 @@ export const Footer: FC = (props) => (
                   },
                 }}
               >
-                Devias Kit <span>PRO</span>
+                Template <span>Blog</span>
               </Box>
             </Stack>
             <Typography

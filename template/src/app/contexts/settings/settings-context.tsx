@@ -3,7 +3,7 @@ import { createContext } from 'react';
 import type { Settings } from 'src/app/types/settings';
 
 export const defaultSettings: Settings = {
-  colorPreset: 'indigo',
+  colorPreset: 'blue',
   contrast: 'normal',
   direction: 'ltr',
   layout: 'vertical',

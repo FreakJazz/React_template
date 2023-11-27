@@ -6,7 +6,6 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
-
 import type { PaletteMode } from 'src/app/theme';
 
 interface Option {
@@ -43,6 +42,7 @@ interface OptionsColorSchemeProps {
 
 export const OptionsColorScheme: FC<OptionsColorSchemeProps> = (props) => {
   const { onChange, value } = props;
+  console.log("OptionsColorScheme", value);
 
   return (
     <Stack spacing={1}>

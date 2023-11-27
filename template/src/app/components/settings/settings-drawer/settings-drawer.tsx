@@ -32,7 +32,7 @@ interface SettingsDrawerProps {
 
 export const SettingsDrawer: FC<SettingsDrawerProps> = (props) => {
   const { canReset, onClose, onUpdate, onReset, open, values = {}, ...other } = props;
-
+  
   const handleFieldUpdate = useCallback(
     (field: keyof Settings, value: unknown): void => {
       onUpdate?.({
@@ -170,6 +170,5 @@ SettingsDrawer.propTypes = {
   onReset: PropTypes.func,
   onUpdate: PropTypes.func,
   open: PropTypes.bool,
-  // @ts-ignore
   values: PropTypes.object,
 };
