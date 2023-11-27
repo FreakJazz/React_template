@@ -22,6 +22,7 @@ import { Layout as MarketingLayout } from '../app/layouts';
 import { paths } from '../app/paths';
 import type { PaletteMode } from '../app/theme';
 import { HomePrincipal } from '../app/components/blogs/home-principal';
+import { HomeReviews } from '../app/components/blogs/home-reviews';
 
 
 interface Item {
@@ -152,6 +153,7 @@ const Page: NextPage = () => {
     <>
       <Seo title="Components" />
       <HomePrincipal />
+      <HomeReviews />
       <Box
         sx={{
           backgroundColor: (theme) =>
