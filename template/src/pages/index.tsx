@@ -21,6 +21,8 @@ import { usePageView } from '../app/hooks/use-page-view';
 import { Layout as MarketingLayout } from '../app/layouts';
 import { paths } from '../app/paths';
 import type { PaletteMode } from '../app/theme';
+import { HomePrincipal } from '../app/components/blogs/home-principal';
+
 
 interface Item {
   image: string;
@@ -149,6 +151,7 @@ const Page: NextPage = () => {
   return (
     <>
       <Seo title="Components" />
+      <HomePrincipal />
       <Box
         sx={{
           backgroundColor: (theme) =>
