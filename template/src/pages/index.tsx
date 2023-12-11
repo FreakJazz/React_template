@@ -8,6 +8,8 @@ import { HomeReviews } from "../app/components/blogs/home-reviews";
 import {HomeText } from "../app/components/blogs/home-text";
 import { SliderPrincipal } from "../app/components/slider/slider-principal";
 import { Contact } from "../app/components/contact/index";
+import { ArticleCenter } from "../app/components/articles/article-center"
+
 
 interface Item {
   image: string;
@@ -54,6 +56,7 @@ const Page: NextPage = () => {
     <>
       <Seo title="Components" />
       <HomePrincipal />
+      <ArticleCenter />
       <HomeReviews />
       <HomeText />
       <SliderPrincipal data={SliderData} />
