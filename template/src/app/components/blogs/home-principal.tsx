@@ -53,6 +53,7 @@ export const HomePrincipal: FC = () => {
             alignItems="center"
             direction="row"
             spacing={2}
+            padding={3}
           >
             <Button
               component={RouterLink}

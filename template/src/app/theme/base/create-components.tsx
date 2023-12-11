@@ -3,7 +3,6 @@ import { tableCellClasses } from '@mui/material/TableCell';
 import type { Components } from '@mui/material/styles/components';
 import { createTheme } from '@mui/material/styles';
 
-// Used only to create transitions
 const muiTheme = createTheme();
 
 export const createComponents = (): Components => {
