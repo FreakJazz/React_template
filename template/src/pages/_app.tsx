@@ -23,7 +23,7 @@ import 'src/app/locales/i18n';
 
 import { RTL } from 'src/app/components/rtl';
 import { SettingsButton } from 'src/app/components/settings/settings-button';
-import { SettingsDrawer } from 'src/app/components/settings/settings-drawer';
+// import { SettingsDrawer } from 'src/app/components/settings/settings-drawer';
 import { Toaster } from '../app/components/toaster';
 import { SettingsConsumer, SettingsProvider } from 'src/app/contexts/settings';
 import { TopNav } from 'src/app/layouts/top-nav'
@@ -89,7 +89,7 @@ const CustomApp = (props: CustomAppProps) => {
                             <CssBaseline />
                               <>
                                 {getLayout(<Component {...pageProps} />)}
-                                <SettingsButton onClick={settings.handleDrawerOpen} />
+                                {/* <SettingsButton onClick={settings.handleDrawerOpen} />
                                 <SettingsDrawer
                                   canReset={settings.isCustom}
                                   onClose={settings.handleDrawerClose}
@@ -106,7 +106,7 @@ const CustomApp = (props: CustomAppProps) => {
                                     layout: settings.layout,
                                     navColor: settings.navColor,
                                   }}
-                                />
+                                /> */}
                                 <TopNav 
                                   onUpdate={settings.handleUpdate}
                                   values={{
