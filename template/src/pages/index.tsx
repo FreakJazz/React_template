@@ -7,6 +7,7 @@ import { HomePrincipal } from "../app/components/blogs/home-principal";
 import { HomeReviews } from "../app/components/blogs/home-reviews";
 import {HomeText } from "../app/components/blogs/home-text";
 import { SliderPrincipal } from "../app/components/slider/slider-principal";
+import { Contact } from "../app/components/contact/index";
 
 interface Item {
   image: string;
@@ -56,6 +57,7 @@ const Page: NextPage = () => {
       <HomeReviews />
       <HomeText />
       <SliderPrincipal data={SliderData} />
+      <Contact />
     </>
   );
 };
