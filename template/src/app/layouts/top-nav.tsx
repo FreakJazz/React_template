@@ -213,15 +213,6 @@ export const TopNav: FC<TopNavProps> = (props) => {
                         />
                       );
                     })}
-                    {/* <Button
-                        component="a"
-                        size={mdUp ? 'medium' : 'small'}
-                        href="https://mui.com/store/items/devias-kit-pro"
-                        target="_blank"
-                        variant="contained"
-                      >
-                        Contact
-                      </Button> */}
                   </>
                 </Stack>
               </Box>

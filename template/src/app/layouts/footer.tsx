@@ -1,78 +1,28 @@
-import type { FC } from 'react';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Unstable_Grid2';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import { RouterLink } from '../components/router-link' ;
-import { paths } from '../paths';
-
-interface Section {
-  title: string;
-  items: {
-    external?: boolean;
-    title: string;
-    path: string;
-  }[];
-}
-
-const sections: Section[] = [
-  {
-    title: 'Menu',
-    items: [
-      {
-        title: 'Browse Components',
-        path: paths.components.index,
-      },
-      {
-        title: 'Documentation',
-        external: true,
-        path: paths.docs,
-      },
-    ],
-  },
-  {
-    title: 'Legal',
-    items: [
-      {
-        title: 'Terms & Conditions',
-        path: '#',
-      },
-      {
-        title: 'License',
-        path: '#',
-      },
-      {
-        title: 'Contact',
-        path: '#',
-      },
-    ],
-  },
-  {
-    title: 'Social',
-    items: [
-      {
-        title: 'Instagram',
-        path: '#',
-      },
-      {
-        title: 'LinkedIn',
-        path: '#',
-      },
-    ],
-  },
-];
+import type { FC } from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Unstable_Grid2";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { RouterLink } from "../components/router-link";
+import { paths } from "../paths";
+import { oneTitle, twoTitle } from "../../../config";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 export const Footer: FC = (props) => (
   <Box
     sx={{
-      backgroundColor: (theme) => (theme.palette.mode === 'dark' ? 'neutral.800' : 'neutral.50'),
-      borderTopColor: 'divider',
-      borderTopStyle: 'solid',
+      backgroundColor: (theme) =>
+        theme.palette.mode === "dark" ? "neutral.800" : "neutral.50",
+      borderTopColor: "divider",
+      borderTopStyle: "solid",
       borderTopWidth: 1,
-      pb: 6,
+      pb: 2,
       pt: {
         md: 15,
         xs: 6,
@@ -81,10 +31,7 @@ export const Footer: FC = (props) => (
     {...props}
   >
     <Container maxWidth="lg">
-      <Grid
-        container
-        spacing={3}
-      >
+      <Grid container spacing={3}>
         <Grid
           xs={12}
           sm={4}
@@ -104,116 +51,72 @@ export const Footer: FC = (props) => (
               display="inline-flex"
               href={paths.index}
               spacing={1}
-              sx={{ textDecoration: 'none' }}
+              sx={{ textDecoration: "none" }}
             >
               <Box
                 sx={{
-                  display: 'inline-flex',
+                  display: "inline-flex",
                   height: 24,
                   width: 24,
                 }}
               >
-              {/* <Logo /> */}
+                {/* <Logo /> */}
               </Box>
               <Box
                 sx={{
-                  color: 'text.primary',
+                  color: "text.primary",
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 14,
                   fontWeight: 800,
-                  letterSpacing: '0.3px',
+                  letterSpacing: "0.3px",
                   lineHeight: 2.5,
-                  '& span': {
-                    color: 'primary.main',
+                  "& span": {
+                    color: "primary.main",
                   },
                 }}
               >
-                Template <span>Blog</span>
+                {oneTitle} <span>{twoTitle}</span>
               </Box>
             </Stack>
-            <Typography
-              color="text.secondary"
-              variant="caption"
-            >
-              © 2022 Devias IO
+            <Typography color="text.secondary" variant="caption">
+              © 2023 Your Company
             </Typography>
           </Stack>
         </Grid>
-        {sections.map((section, index) => (
-          <Grid
-            key={section.title}
-            xs={12}
-            sm={4}
-            md={3}
+        <Grid
+          xs={12}
+          sm={4}
+          md={3}
+          sx={{
+            order: {
+              xs: 4,
+              md: 1,
+            },
+          }}
+        >
+          <Stack
+            alignItems="center"
+            direction="row"
+            flexWrap="wrap"
+            gap={4}
+            justifyContent="center"
             sx={{
-              order: {
-                md: index + 2,
-                xs: index + 1,
+              color: "action.active",
+              "& > *": {
+                flex: "0 0 auto",
               },
             }}
           >
-            <Typography
-              color="text.secondary"
-              variant="overline"
-            >
-              {section.title}
-            </Typography>
-            <Stack
-              component="ul"
-              spacing={1}
-              sx={{
-                listStyle: 'none',
-                m: 0,
-                p: 0,
-              }}
-            >
-              {section.items.map((item) => {
-                const linkProps = item.path
-                  ? item.external
-                    ? {
-                        component: 'a',
-                        href: item.path,
-                        target: '_blank',
-                      }
-                    : {
-                        component: RouterLink,
-                        href: item.path,
-                      }
-                  : {};
-
-                return (
-                  <Stack
-                    alignItems="center"
-                    direction="row"
-                    key={item.title}
-                    spacing={2}
-                  >
-                    <Box
-                      sx={{
-                        backgroundColor: 'primary.main',
-                        height: 2,
-                        width: 12,
-                      }}
-                    />
-                    <Link
-                      color="text.primary"
-                      variant="subtitle2"
-                      {...linkProps}
-                    >
-                      {item.title}
-                    </Link>
-                  </Stack>
-                );
-              })}
-            </Stack>
-          </Grid>
-        ))}
+            <LinkedInIcon />
+            <YouTubeIcon />
+            <FacebookIcon />
+            <InstagramIcon />
+            <WhatsAppIcon />
+          </Stack>
+        </Grid>
       </Grid>
-      <Divider sx={{ my: 6 }} />
-      <Typography
-        color="text.secondary"
-        variant="caption"
-      >
+      <Divider sx={{ my: 2 }} />
+      <Typography color="text.secondary" variant="caption">
         All Rights Reserved.
       </Typography>
     </Container>

@@ -32,7 +32,5 @@ export const mapboxConfig = {
 };
 
 export const version = '0.0.1';
-
-export const oneTitle = 'Titulo  de la';
-
-export const twoTitle = 'Página';
+export const oneTitle = 'Page';
+export const twoTitle = 'Title';
