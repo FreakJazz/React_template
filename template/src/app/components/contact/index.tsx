@@ -1,24 +1,15 @@
 'use client';
 
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import EmailIcon from '@mui/icons-material/Email';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
 
-import { LogoAtt } from 'src/app/components/logos/logo-att';
-import { LogoAws } from 'src/app/components/logos/logo-aws';
-import { LogoBolt } from 'src/app/components/logos/logo-bolt';
-import { LogoSamsung } from 'src/app/components/logos/logo-samsung';
-import { LogoVisma } from 'src/app/components/logos/logo-visma';
-import { RouterLink } from 'src/app/components/router-link';
 import { Seo } from 'src/app/components/seo';
 import { usePageView } from 'src/app/hooks/use-page-view';
-import { paths } from 'src/app/paths';
 import { ContactForm } from './contact-form';
 
 export const Contact = () => {
