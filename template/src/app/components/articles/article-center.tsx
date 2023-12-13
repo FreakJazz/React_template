@@ -2,25 +2,30 @@ import type { FC } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
 
 export const ArticleCenter: FC = () => {
-    const theme = useTheme();
-    
+
   return (
     <Box
         sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            py: 2
         }}
     >
       <Container maxWidth="lg">
-        <Box maxWidth="lg">
+        <Box  sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            maxWidth: 'lg',
+          }}>
           <Typography
             variant="h1"
             sx={{ 
-                mb: 0,
+                mb: 2,
                 justifyContent: 'center',
                 alignItems: 'center', 
             }}
@@ -32,9 +37,7 @@ export const ArticleCenter: FC = () => {
               overflow: 'hidden',
               width: '90%',
               fontSize: 0,
-              mt: -2,
-              mx: -2,
-              pt: 2,
+              py: 2,
               px: 2,
               '& img': {
                 borderTopLeftRadius: (theme) => theme.shape.borderRadius * 2.5,
@@ -44,13 +47,7 @@ export const ArticleCenter: FC = () => {
               },
             }}
           >
-            <img
-              src={
-                theme.palette.mode === 'dark'
-                  ? '/assets/home-thumbnail-dark.png'
-                  : '/assets/home-thumbnail-light.png'
-              }
-            />
+            <img src='/assets/article-images/gallery-6.jpg' />
           </Box>
           <Typography
             color="text.secondary"
