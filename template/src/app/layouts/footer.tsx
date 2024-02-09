@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { RouterLink } from "../components/router-link";
 import { paths } from "../paths";
-import { oneTitle, twoTitle } from "../../../config";
+import { oneTitle, twoTitle } from "../config";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";

@@ -42,7 +42,6 @@ interface OptionsColorSchemeProps {
 
 export const OptionsColorScheme: FC<OptionsColorSchemeProps> = (props) => {
   const { onChange, value } = props;
-  console.log("OptionsColorScheme", value);
 
   return (
     <Stack spacing={1}>

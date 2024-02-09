@@ -4,7 +4,7 @@ import type { ThunkAction } from 'redux-thunk';
 import type { AnyAction } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
 
-import { enableDevTools } from '../../../config';
+import { enableDevTools } from '../config';
 
 import { rootReducer } from './root-reducer';
 

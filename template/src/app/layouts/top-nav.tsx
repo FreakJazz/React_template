@@ -15,7 +15,7 @@ import type { Theme } from '@mui/material/styles/createTheme';
 import type { Settings } from 'src/app/types/settings';
 
 import { RouterLink } from 'src/app/components/router-link';
-import { version, oneTitle, twoTitle } from '../../../config';
+import { version, oneTitle, twoTitle } from '../config';
 import { usePathname } from 'src/app/hooks/use-pathname';
 import { useWindowScroll } from 'src/app/hooks/use-window-scroll';
 import OptionColor from '../components/settings/settings-drawer/options-color';

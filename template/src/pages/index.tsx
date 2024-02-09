@@ -10,6 +10,9 @@ import { SliderPrincipal } from "../app/components/slider/slider-principal";
 import { Contact } from "../app/components/contact/index";
 import { ArticleCenter } from "../app/components/articles/article-center"
 import { ArticleLeft } from "../app/components/articles/article-left"
+import { ArticleRight } from "../app/components/articles/article-right"
+import Grid from '@mui/material/Unstable_Grid2';
+import { OverviewTips } from 'src/app/components/slider/slider-test';
 
 interface Item {
   image: string;
@@ -58,6 +61,30 @@ const Page: NextPage = () => {
       <HomePrincipal />
       <ArticleCenter />
       <ArticleLeft />
+      <ArticleRight />
+      <Grid
+              xs={12}
+              md={5}
+            >
+              <OverviewTips
+                sx={{ height: '100%' }}
+                tips={[
+                  {
+                    title: 'New fresh design.',
+                    content:
+                      'Your favorite template has a new trendy look, more customization options, screens & more.',
+                  },
+                  {
+                    title: 'Tip 2.',
+                    content: 'Tip content',
+                  },
+                  {
+                    title: 'Tip 3.',
+                    content: 'Tip content',
+                  },
+                ]}
+              />
+            </Grid>
       <HomeReviews />
       <HomeText />
       <SliderPrincipal data={SliderData} />

@@ -26,12 +26,12 @@ export const ArticleLeft: FC = () => {
         >
           <Box
             sx={{
-              width: '48%', // Ajustar según sea necesario
-              pr: 2, // Añadido relleno a la derecha para separar la imagen del texto
+              width: '48%', 
+              pr: 2,
             }}
           >
             <Typography variant="h1" sx={{ mb: 2 }}>
-              Title for the article
+              Title for the left article 
             </Typography>
             <Typography
               color="text.secondary"
@@ -53,7 +53,7 @@ export const ArticleLeft: FC = () => {
                 borderTopRightRadius: (theme) => theme.shape.borderRadius * 2.5,
                 boxShadow: 16,
                 width: '50%',
-              },
+              },                                                            
             }}
           >
             <img src='/assets/article-images/gallery-4.jpg' alt="Article Image" />
