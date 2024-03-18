@@ -57,69 +57,69 @@ const CustomApp = (props: CustomAppProps) => {
       </Head>
       <ReduxProvider store={store}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <SettingsProvider>
-                  <SettingsConsumer>
-                    {(settings: any) => {
-                      // Prevent theme flicker when restoring custom settings from browser storage
-                      if (!settings.isInitialized) {
-                        // return null;
-                      }
+            <SettingsProvider>
+              <SettingsConsumer>
+                {(settings: any) => {
+                  // Prevent theme flicker when restoring custom settings from browser storage
+                  if (!settings.isInitialized) {
+                    // return null;
+                  }
 
-                      const theme = createTheme({
-                        colorPreset: settings.colorPreset,
-                        contrast: settings.contrast,
-                        direction: settings.direction,
-                        paletteMode: settings.paletteMode,
-                        responsiveFontSizes: settings.responsiveFontSizes,
-                      });
+                  const theme = createTheme({
+                    colorPreset: settings.colorPreset,
+                    contrast: settings.contrast,
+                    direction: settings.direction,
+                    paletteMode: settings.paletteMode,
+                    responsiveFontSizes: settings.responsiveFontSizes,
+                  });
 
-                      return (
-                        <ThemeProvider theme={theme}>
-                          <Head>
-                            <meta
-                              name="color-scheme"
-                              content={settings.paletteMode}
-                            />
-                            <meta
-                              name="theme-color"
-                              content={theme.palette.neutral[900]}
-                            />
-                          </Head>
-                          <RTL direction={settings.direction}>
-                            <CssBaseline />
-                              <>
-                                {getLayout(<Component {...pageProps} />)}
-                                {/* <SettingsButton onClick={settings.handleDrawerOpen} />
-                                <SettingsDrawer
-                                  canReset={settings.isCustom}
-                                  onClose={settings.handleDrawerClose}
-                                  onReset={settings.handleReset}
-                                  onUpdate={settings.handleUpdate}
-                                  open={settings.openDrawer}
-                                  values={{
-                                    colorPreset: settings.colorPreset,
-                                    contrast: settings.contrast,
-                                    direction: settings.direction,
-                                    paletteMode: settings.paletteMode,
-                                    responsiveFontSizes: settings.responsiveFontSizes,
-                                    stretch: settings.stretch,
-                                    layout: settings.layout,
-                                    navColor: settings.navColor,
-                                  }}
-                                /> */}
-                                <TopNav 
-                                  onUpdate={settings.handleUpdate}
-                                  values={{
-                                    paletteMode: settings.paletteMode,
-                                  }} />
-                              </>
-                            <Toaster />
-                          </RTL>
-                        </ThemeProvider>
-                      );
-                    }}
-                  </SettingsConsumer>
-                </SettingsProvider>
+                  return (
+                    <ThemeProvider theme={theme}>
+                      <Head>
+                        <meta
+                          name="color-scheme"
+                          content={settings.paletteMode}
+                        />
+                        <meta
+                          name="theme-color"
+                          content={theme.palette.neutral[900]}
+                        />
+                      </Head>
+                      <RTL direction={settings.direction}>
+                        <CssBaseline />
+                          <>
+                            {getLayout(<Component {...pageProps} />)}
+                            {/* <SettingsButton onClick={settings.handleDrawerOpen} />
+                            <SettingsDrawer
+                              canReset={settings.isCustom}
+                              onClose={settings.handleDrawerClose}
+                              onReset={settings.handleReset}
+                              onUpdate={settings.handleUpdate}
+                              open={settings.openDrawer}
+                              values={{
+                                colorPreset: settings.colorPreset,
+                                contrast: settings.contrast,
+                                direction: settings.direction,
+                                paletteMode: settings.paletteMode,
+                                responsiveFontSizes: settings.responsiveFontSizes,
+                                stretch: settings.stretch,
+                                layout: settings.layout,
+                                navColor: settings.navColor,
+                              }}
+                            /> */}
+                            <TopNav 
+                              onUpdate={settings.handleUpdate}
+                              values={{
+                                paletteMode: settings.paletteMode,
+                              }} />
+                          </>
+                        <Toaster />
+                      </RTL>
+                    </ThemeProvider>
+                  );
+                }}
+              </SettingsConsumer>
+            </SettingsProvider>
         </LocalizationProvider>
       </ReduxProvider>
     </CacheProvider>

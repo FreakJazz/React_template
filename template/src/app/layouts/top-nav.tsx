@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { alpha } from '@mui/system/colorManipulator';
 import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
@@ -13,13 +12,11 @@ import SvgIcon from '@mui/material/SvgIcon';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import type { Theme } from '@mui/material/styles/createTheme';
 import type { Settings } from 'src/app/types/settings';
-
 import { RouterLink } from 'src/app/components/router-link';
 import { version, oneTitle, twoTitle } from '../config';
 import { usePathname } from 'src/app/hooks/use-pathname';
 import { useWindowScroll } from 'src/app/hooks/use-window-scroll';
 import OptionColor from '../components/settings/settings-drawer/options-color';
-
 import { paths } from 'src/app/paths';
 import { PagesPopover } from './pages-popover';
 import { TopNavItem } from './top-nav-item';

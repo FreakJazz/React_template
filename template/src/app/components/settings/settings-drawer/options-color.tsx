@@ -43,7 +43,6 @@ const OptionColor: FC<OptionColorProps> = ({ onChange, value }) => {
   const handleClick = () => {
     setIsDarkMode((prevIsDarkMode) => !prevIsDarkMode);
     const selectedMode = isDarkMode ? light.value : dark.value;
-    console.log("OptionsColor", selectedMode);
     onChange?.(selectedMode);
   };
 

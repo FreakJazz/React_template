@@ -6,7 +6,7 @@ export const defaultSettings: Settings = {
   colorPreset: 'blue',
   contrast: 'normal',
   direction: 'ltr',
-  layout: 'vertical',
+  layout: 'horizontal',
   navColor: 'evident',
   paletteMode: 'light',
   responsiveFontSizes: true,
