@@ -1,7 +1,7 @@
-import type { FC } from 'react';
+import { FC } from 'react';
 import Slider from 'react-slick';
 import PropTypes from 'prop-types';
-import type { SxProps } from '@mui/system/styleFunctionSx';
+import { SxProps } from '@mui/system';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -39,7 +39,7 @@ export const OverviewTips: FC<OverviewTipsProps> = (props) => {
         }}
       >
         <Box sx={{ mb: 6 }}>
-          <img src="/assets/next-tip.svg" />
+          <img src="/assets/next-tip.svg" alt="Next Tip" />
         </Box>
         <Box
           sx={{
@@ -79,7 +79,11 @@ export const OverviewTips: FC<OverviewTipsProps> = (props) => {
 };
 
 OverviewTips.propTypes = {
-  // @ts-ignore
   sx: PropTypes.object,
-  tips: PropTypes.array.isRequired,
+  tips: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

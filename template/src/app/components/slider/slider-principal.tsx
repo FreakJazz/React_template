@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Slider from "react-slick";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
+import { SxProps } from '@mui/system';
 import { SliderContent } from "./slider-content";
 
 const sliderSettings = {
@@ -14,17 +15,20 @@ const sliderSettings = {
   slidesToScroll: 1,
 };
 
+interface Tip {
+  title: string;
+  content: string;
+  urlImage: string;
+  id: string;
+}
+
 interface SliderDataProps {
-  data: {
-    id: string;
-    title: string;
-    urlImage: string;
-    description: string;
-  }[];
+  sx?: SxProps;
+  tips: Tip[];
 }
 
 export const SliderPrincipal: FC<SliderDataProps> = (props) => {
-  const { data } = props;
+  const { tips, sx } = props;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -37,6 +41,7 @@ export const SliderPrincipal: FC<SliderDataProps> = (props) => {
     autoplaySpeed: 3000,
     beforeChange: (current: any, next: any) => setCurrentSlide(next),
   };
+
   return (
     <Box
       sx={{
@@ -63,27 +68,17 @@ export const SliderPrincipal: FC<SliderDataProps> = (props) => {
         },
       }}
     >
-      <Slider {...sliderSettings}>
+      <Slider {...settings}>
         <Grid container spacing={2}>
-          {data.map((item) => (
+          {tips.map((item) => (
             <SliderContent
+              key={item.id}
               title={item.title}
               urlImage={item.urlImage}
-              description={item.description}
+              description={item.content}
               id={item.id}
             />
           ))}
-          {/* 
-        {data.map((item) => (
-            <SliderContent
-            title = {item.title} 
-            urlImage = {item.urlImage} 
-            description = {item.urlImage }
-            id = {item.id} 
-            />
-            )
-            )}
-        </Slider> */}
         </Grid>
       </Slider>
     </Box>
@@ -91,5 +86,13 @@ export const SliderPrincipal: FC<SliderDataProps> = (props) => {
 };
 
 SliderPrincipal.propTypes = {
-  data: PropTypes.array.isRequired,
+  sx: PropTypes.object,
+  tips: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      urlImage: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

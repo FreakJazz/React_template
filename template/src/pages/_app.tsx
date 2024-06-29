@@ -20,6 +20,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import '../app/styles/globals.css';
 import 'src/app/locales/i18n';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 import { RTL } from 'src/app/components/rtl';
 import { SettingsButton } from 'src/app/components/settings/settings-button';
