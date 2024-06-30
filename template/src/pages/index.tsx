@@ -14,6 +14,7 @@ import { ArticleRight } from "../app/components/articles/article-right"
 import Grid from '@mui/material/Unstable_Grid2';
 import { OverviewTips } from 'src/app/components/slider/slider-test';
 import { BannerPrincipal } from 'src/app/components/banner/banner-principal';
+import { BannerSlider } from 'src/app/components/banner/banner-slider';
 
 interface Item {
   image: string;
@@ -59,6 +60,24 @@ const SliderData = [
   },
 ];
 
+const banners = [
+  {
+    imageUrl: "/assets/banner-images/image.jpg",
+    title: "Welcome to Our Website",
+    subtitle: "This is the principal banner, Come on take your time to describe your bussiness",
+  },
+  {
+    imageUrl: "/assets/banner-images/pantano.jpg",
+    title: "Welcome to Our Website",
+    subtitle: "This is the principal banner, Come on take your time to describe your bussiness",
+  },
+  {
+    imageUrl: "/assets/banner-images/tree.jpg",
+    title: "Welcome to Our Website",
+    subtitle: "This is the principal banner, Come on take your time to describe your bussiness",
+  },
+];
+
 
 const Page: NextPage = () => {
   const theme = useTheme();
@@ -72,6 +91,9 @@ const Page: NextPage = () => {
         title="Welcome to Our Website"
         subtitle="This is the principal banner, Come on take your time to describe your bussiness"
       />
+      <div>
+        <BannerSlider banners={banners} />
+      </div>
       <ArticleCenter />
       <ArticleLeft />
       <ArticleRight />
