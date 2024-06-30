@@ -13,6 +13,7 @@ import { ArticleLeft } from "../app/components/articles/article-left"
 import { ArticleRight } from "../app/components/articles/article-right"
 import Grid from '@mui/material/Unstable_Grid2';
 import { OverviewTips } from 'src/app/components/slider/slider-test';
+import { BannerPrincipal } from 'src/app/components/banner/banner-principal';
 
 interface Item {
   image: string;
@@ -32,22 +33,29 @@ const SliderData = [
     id: "79f8212e4245e4c11952f2cf",
     title: "IOT with Python",
     urlImage: "/assets/slider-images/python.png",
-    description:
+    content:
       "IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with Python IOT with PythonIOT with Python",
   },
   {
     id: "78900987676ghyhrf57h",
     title: "PYQT with PYTHON",
     urlImage: "/assets/slider-images/python.png",
-    description:
+    content:
       "PYQT with PYTHON PYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHON",
   },
   {
     id: "78900987676ghyhrf57h",
     title: "React Realidad aumentada",
     urlImage: "/assets/slider-images/react.png",
-    description:
+    content:
       "React Realidad aumentada React Realidad aumentadaReact Realidad aumentadaReact Realidad aumentadaReact Realidad aumentadaReact Realidad aumentadaReact Realidad aumentadaReact Realidad aumentadaReact Realidad aumentadaReact Realidad aumentada React Realidad aumentadaReact Realidad aumentadaReact Realidad aumentada",
+  },
+  {
+    id: "78900987676ghyhrf57h",
+    title: "PYQT with PYTHON",
+    urlImage: "/assets/slider-images/python.png",
+    content:
+      "PYQT with PYTHON PYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHONPYQT with PYTHON",
   },
 ];
 
@@ -59,35 +67,17 @@ const Page: NextPage = () => {
     <>
       <Seo title="Components" />
       <HomePrincipal />
+      <BannerPrincipal
+        imageUrl="/assets/banner-images/image.jpg"
+        title="Welcome to Our Website"
+        subtitle="This is the principal banner, Come on take your time to describe your bussiness"
+      />
       <ArticleCenter />
       <ArticleLeft />
       <ArticleRight />
-      <Grid
-              xs={12}
-              md={5}
-            >
-              <OverviewTips
-                sx={{ height: '100%' }}
-                tips={[
-                  {
-                    title: 'New fresh design.',
-                    content:
-                      'Your favorite template has a new trendy look, more customization options, screens & more.',
-                  },
-                  {
-                    title: 'Tip 2.',
-                    content: 'Tip content',
-                  },
-                  {
-                    title: 'Tip 3.',
-                    content: 'Tip content',
-                  },
-                ]}
-              />
-            </Grid>
+      <SliderPrincipal data={SliderData} sx={{ height: '100%' }} />
       <HomeReviews />
       <HomeText />
-      <SliderPrincipal data={SliderData} />
       <Contact />
     </>
   );
