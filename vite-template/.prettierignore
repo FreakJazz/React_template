@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+build
+
+# Lock files
+package-lock.json
+yarn-lock.json
+
+# Misc
+dist
+public
